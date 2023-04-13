@@ -1,4 +1,4 @@
-# Lab5 Assignment - React Weather Forecast
+# React Weather Forecast
 
 ![Component](img/forecast.png)
 
