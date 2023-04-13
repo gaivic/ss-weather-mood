@@ -33,7 +33,44 @@ export default class Forecast extends React.Component {
 
         this.state = {
             // TODO 
-            ...Forecast.getInitWeatherState(),
+            forecast: [
+                {
+                    city: 'na',
+                    code: -1,
+                    group: 'na',
+                    description: 'N/A',
+                    temp: NaN
+                },
+                {
+                    city: 'na',
+                    code: -1,
+                    group: 'na',
+                    description: 'N/A',
+                    temp: NaN
+                },
+                {
+                    city: 'na',
+                    code: -1,
+                    group: 'na',
+                    description: 'N/A',
+                    temp: NaN
+                },
+                {
+                    city: 'na',
+                    code: -1,
+                    group: 'na',
+                    description: 'N/A',
+                    temp: NaN
+                },
+                {
+                    city: 'na',
+                    code: -1,
+                    group: 'na',
+                    description: 'N/A',
+                    temp: NaN
+                }
+
+            ],
             loading: false,
             masking: false
         };
@@ -53,26 +90,26 @@ export default class Forecast extends React.Component {
         }
     }
 
-    // render() {
-    //     return (
-    //         <div className={`forecast weather-bg ${this.state.forecast[0].group}`}>
-    //             <div className={`mask ${this.state.masking ? 'masking' : ''}`}>
-    //                 <WeatherForm city={this.state.forecast[0].city} unit={this.props.unit} onQuery={this.handleFormQuery} />
-    //                 {/* <ForecastDisplay {...this.state} /> */}
-    //             </div>
-    //         </div>
-    //     );
-    // }
     render() {
         return (
-            <div className={`forecast weather-bg ${this.state.group}`}>
+            <div className={`forecast weather-bg ${this.state.forecast[0].group}`}>
                 <div className={`mask ${this.state.masking ? 'masking' : ''}`}>
-                    <WeatherForm city={this.state.city} unit={this.props.unit} onQuery={this.handleFormQuery} />
+                    <WeatherForm city={this.state.forecast[0].city} unit={this.props.unit} onQuery={this.handleFormQuery} />
                     <ForecastDisplay {...this.state} />
                 </div>
             </div>
         );
     }
+    // render() {
+    //     return (
+    //         <div className={`forecast weather-bg ${this.state.group}`}>
+    //             <div className={`mask ${this.state.masking ? 'masking' : ''}`}>
+    //                 <WeatherForm city={this.state.city} unit={this.props.unit} onQuery={this.handleFormQuery} />
+    //                 <ForecastDisplay {...this.state} />
+    //             </div>
+    //         </div>
+    //     );
+    // }
     // render() {
     //     return (
     //         <div className={`today weather-bg ${this.state.group}`}>
@@ -99,7 +136,7 @@ export default class Forecast extends React.Component {
                 console.error('Error getting weather', err);
 
                 this.setState({
-                    ...Today.getInitWeatherState(unit),
+                    ...Forecast.getInitWeatherState(unit),
                     loading: false
                 }, () => this.notifyUnitChange(unit));
             });

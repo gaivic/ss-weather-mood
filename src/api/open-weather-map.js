@@ -76,54 +76,54 @@ export function getForecast(city, unit) {
             throw new Error(res.data.message);
         } else {
             return {
-                city: capitalize(city),
-                code: res.data.list[9].weather[0].id,
-                group: getWeatherGroup(res.data.list[9].weather[0].id),
-                description: res.data.list[9].weather[0].description,
-                temp: res.data.list[9].main.temp,
-                unit: unit // or 'imperial'
-                // forecast: [
-                //     {
-                //         city: capitalize(city),
-                //         code: res.data.list[9].weather[0].id,
-                //         group: getWeatherGroup(res.data.list[9].weather[0].id),
-                //         description: res.data.list[9].weather[0].description,
-                //         temp: res.data.list[9].main.temp,
-                //         unit: unit // or 'imperial'
-                //     },
-                //     {
-                //         city: capitalize(city),
-                //         code: res.data.list[17].weather[0].id,
-                //         group: getWeatherGroup(res.data.list[17].weather[0].id),
-                //         description: res.data.list[17].weather[0].description,
-                //         temp: res.data.list[17].main.temp,
-                //         unit: unit // or 'imperial'
-                //     },
-                //     {
-                //         city: capitalize(city),
-                //         code: res.data.list[25].weather[0].id,
-                //         group: getWeatherGroup(res.data.list[25].weather[0].id),
-                //         description: res.data.list[25].weather[0].description,
-                //         temp: res.data.list[25].main.temp,
-                //         unit: unit // or 'imperial'
-                //     },
-                //     {
-                //         city: capitalize(city),
-                //         code: res.data.list[33].weather[0].id,
-                //         group: getWeatherGroup(res.data.list[33].weather[0].id),
-                //         description: res.data.list[33].weather[0].description,
-                //         temp: res.data.list[33].main.temp,
-                //         unit: unit // or 'imperial'
-                //     },
-                //     {
-                //         city: capitalize(city),
-                //         code: res.data.list[41].weather[0].id,
-                //         group: getWeatherGroup(res.data.list[41].weather[0].id),
-                //         description: res.data.list[41].weather[0].description,
-                //         temp: res.data.list[41].main.temp,
-                //         unit: unit // or 'imperial'
-                //     }
-                // ]
+                // city: capitalize(city),
+                // code: res.data.list[9].weather[0].id,
+                // group: getWeatherGroup(res.data.list[9].weather[0].id),
+                // description: res.data.list[9].weather[0].description,
+                // temp: res.data.list[9].main.temp,
+                // unit: unit // or 'imperial'
+                forecast: [
+                    {
+                        city: capitalize(city),
+                        code: res.data.list[7].weather[0].id,
+                        group: getWeatherGroup(res.data.list[7].weather[0].id),
+                        description: res.data.list[7].weather[0].description,
+                        temp: res.data.list[7].main.temp,
+                        unit: unit // or 'imperial'
+                    },
+                    {
+                        city: capitalize(city),
+                        code: res.data.list[15].weather[0].id,
+                        group: getWeatherGroup(res.data.list[15].weather[0].id),
+                        description: res.data.list[15].weather[0].description,
+                        temp: res.data.list[15].main.temp,
+                        unit: unit // or 'imperial'
+                    },
+                    {
+                        city: capitalize(city),
+                        code: res.data.list[23].weather[0].id,
+                        group: getWeatherGroup(res.data.list[23].weather[0].id),
+                        description: res.data.list[23].weather[0].description,
+                        temp: res.data.list[23].main.temp,
+                        unit: unit // or 'imperial'
+                    },
+                    {
+                        city: capitalize(city),
+                        code: res.data.list[31].weather[0].id,
+                        group: getWeatherGroup(res.data.list[31].weather[0].id),
+                        description: res.data.list[31].weather[0].description,
+                        temp: res.data.list[31].main.temp,
+                        unit: unit // or 'imperial'
+                    },
+                    {
+                        city: capitalize(city),
+                        code: res.data.list[39].weather[0].id,
+                        group: getWeatherGroup(res.data.list[39].weather[0].id),
+                        description: res.data.list[39].weather[0].description,
+                        temp: res.data.list[39].main.temp,
+                        unit: unit // or 'imperial'
+                    }
+                ]
 
             };
         }
