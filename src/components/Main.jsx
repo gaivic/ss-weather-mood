@@ -39,7 +39,7 @@ export default class Main extends React.Component {
                     <div className='container'>
                         <Navbar color="faded" light expand="md">
                             <NavbarBrand className='text-info' href="/">WeatherMood</NavbarBrand>
-                            <NavbarToggler onClick={this.handleNavbarToggle}/>
+                            <NavbarToggler onClick={this.handleNavbarToggle} />
                             <Collapse isOpen={this.state.navbarToggle} navbar>
                                 <Nav navbar>
                                     <NavItem>
@@ -56,10 +56,10 @@ export default class Main extends React.Component {
 
                     <Route exact path="/" render={() => (
                         <Today unit={this.state.unit} onUnitChange={this.handleUnitChange} />
-                    )}/>
+                    )} />
                     <Route exact path="/forecast" render={() => (
                         <Forecast unit={this.state.unit} onUnitChange={this.handleUnitChange} />
-                    )}/>
+                    )} />
                 </div>
             </Router>
         );

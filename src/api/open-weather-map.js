@@ -1,9 +1,10 @@
 import axios from 'axios';
 
 // TODO replace the key with yours
-const key = '<Your own API key>';
+const key = '2d430ea463341a503a0d623ae65ea8fd';
 const baseUrl = `http://api.openweathermap.org/data/2.5/weather?appid=${key}`;
 // TODO
+const baseUrlFore = `http://api.openweathermap.org/data/2.5/forecast?appid=${key}`;
 
 export function getWeatherGroup(code) {
     let group = 'na';
@@ -38,7 +39,7 @@ export function getWeather(city, unit) {
 
     console.log(`Making request to: ${url}`);
 
-    return axios.get(url, {cancelToken: weatherSource.token}).then(function(res) {
+    return axios.get(url, { cancelToken: weatherSource.token }).then(function (res) {
         if (res.data.cod && res.data.message) {
             throw new Error(res.data.message);
         } else {
@@ -51,7 +52,7 @@ export function getWeather(city, unit) {
                 unit: unit // or 'imperial'
             };
         }
-    }).catch(function(err) {
+    }).catch(function (err) {
         if (axios.isCancel(err)) {
             console.error(err.message, err);
         } else {
@@ -65,5 +66,73 @@ export function cancelWeather() {
 }
 
 export function getForecast(city, unit) {
-// TODO 
+    // TODO 
+    var url = `${baseUrlFore}&q=${encodeURIComponent(city)}&units=${unit}`;
+
+    console.log(`Making request to: ${url}`);
+
+    return axios.get(url, { cancelToken: weatherSource.token }).then(function (res) {
+        if (res.data.cod && res.data.message) {
+            throw new Error(res.data.message);
+        } else {
+            return {
+                city: capitalize(city),
+                code: res.data.list[9].weather[0].id,
+                group: getWeatherGroup(res.data.list[9].weather[0].id),
+                description: res.data.list[9].weather[0].description,
+                temp: res.data.list[9].main.temp,
+                unit: unit // or 'imperial'
+                // forecast: [
+                //     {
+                //         city: capitalize(city),
+                //         code: res.data.list[9].weather[0].id,
+                //         group: getWeatherGroup(res.data.list[9].weather[0].id),
+                //         description: res.data.list[9].weather[0].description,
+                //         temp: res.data.list[9].main.temp,
+                //         unit: unit // or 'imperial'
+                //     },
+                //     {
+                //         city: capitalize(city),
+                //         code: res.data.list[17].weather[0].id,
+                //         group: getWeatherGroup(res.data.list[17].weather[0].id),
+                //         description: res.data.list[17].weather[0].description,
+                //         temp: res.data.list[17].main.temp,
+                //         unit: unit // or 'imperial'
+                //     },
+                //     {
+                //         city: capitalize(city),
+                //         code: res.data.list[25].weather[0].id,
+                //         group: getWeatherGroup(res.data.list[25].weather[0].id),
+                //         description: res.data.list[25].weather[0].description,
+                //         temp: res.data.list[25].main.temp,
+                //         unit: unit // or 'imperial'
+                //     },
+                //     {
+                //         city: capitalize(city),
+                //         code: res.data.list[33].weather[0].id,
+                //         group: getWeatherGroup(res.data.list[33].weather[0].id),
+                //         description: res.data.list[33].weather[0].description,
+                //         temp: res.data.list[33].main.temp,
+                //         unit: unit // or 'imperial'
+                //     },
+                //     {
+                //         city: capitalize(city),
+                //         code: res.data.list[41].weather[0].id,
+                //         group: getWeatherGroup(res.data.list[41].weather[0].id),
+                //         description: res.data.list[41].weather[0].description,
+                //         temp: res.data.list[41].main.temp,
+                //         unit: unit // or 'imperial'
+                //     }
+                // ]
+
+            };
+        }
+    }).catch(function (err) {
+        if (axios.isCancel(err)) {
+            console.error(err.message, err);
+        } else {
+            throw err;
+        }
+    });
+
 }

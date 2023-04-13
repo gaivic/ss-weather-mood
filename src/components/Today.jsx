@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import WeatherDisplay from 'components/WeatherDisplay.jsx';
 import WeatherForm from 'components/WeatherForm.jsx';
-import {getWeather,cancelWeather} from 'api/open-weather-map.js';
+import { getWeather, cancelWeather } from 'api/open-weather-map.js';
 
 import './weather.css';
 
@@ -52,8 +52,8 @@ export default class Today extends React.Component {
         return (
             <div className={`today weather-bg ${this.state.group}`}>
                 <div className={`mask ${this.state.masking ? 'masking' : ''}`}>
-                    <WeatherDisplay {...this.state}/>
-                    <WeatherForm city={this.state.city} unit={this.props.unit} onQuery={this.handleFormQuery}/>
+                    <WeatherDisplay {...this.state} />
+                    <WeatherForm city={this.state.city} unit={this.props.unit} onQuery={this.handleFormQuery} />
                 </div>
             </div>
         );

@@ -21,7 +21,7 @@ export default class WeatherDisplay extends React.Component {
             <div className={`weather-display ${this.props.masking
                 ? 'masking'
                 : ''}`}>
-                <img src={`images/w-${this.props.group}.png`}/>
+                <img src={`images/w-${this.props.group}.png`} />
                 <p className='description'>{this.props.description}</p>&nbsp;
                 <h1 className='temp'>
                     <span className='display-3'>{this.props.temp.toFixed(0)}&ordm;</span>
